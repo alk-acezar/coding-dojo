@@ -14,26 +14,20 @@ class Direction(Enum):
     WEST = Delta(dx=-1, dy=0)
 
     def right(self) -> "Direction":
-        if self == Direction.NORTH:
-            direction = Direction.EAST
-        elif self == Direction.SOUTH:
-            direction = Direction.WEST
-        elif self == Direction.WEST:
-            direction = Direction.NORTH
-        elif self == Direction.EAST:
-            direction = Direction.SOUTH
-        return direction
+        return {
+            Direction.NORTH: Direction.EAST,
+            Direction.SOUTH: Direction.WEST,
+            Direction.WEST: Direction.NORTH,
+            Direction.EAST: Direction.SOUTH,
+        }[self]
 
     def left(self) -> "Direction":
-        if self == Direction.WEST:
-            direction = Direction.SOUTH
-        elif self == Direction.SOUTH:
-            direction = Direction.EAST
-        elif self == Direction.EAST:
-            direction = Direction.NORTH
-        elif self == Direction.NORTH:
-            direction = Direction.WEST
-        return direction
+        return {
+            Direction.WEST: Direction.SOUTH,
+            Direction.SOUTH: Direction.EAST,
+            Direction.EAST: Direction.NORTH,
+            Direction.NORTH: Direction.WEST,
+        }[self]
 
 
 class Position(NamedTuple):
