@@ -17,3 +17,15 @@ def test_a_letter_not_in_word_returns_not_in_word():
         Letter.NOT_IN_WORD,
         Letter.NOT_IN_WORD,
     )
+
+
+def test_a_letter_not_in_right_position_returns_not_in_right_position():
+    result = found_letters("zbcde", "uvxyz")
+
+    assert result == (
+        Letter.NOT_IN_RIGHT_POSITION,
+        Letter.NOT_IN_WORD,
+        Letter.NOT_IN_WORD,
+        Letter.NOT_IN_WORD,
+        Letter.NOT_IN_WORD,
+    )
